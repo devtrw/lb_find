@@ -11,7 +11,8 @@ class ApiController < ApplicationController
           { location: '97213', dicipline: [:cruising, :dancing], username: 'pdx_longboarder_420', age: 93 },
           { location: 'Austin, TX', dicipline: [:downhill], username: 'thane-lines', age: 2 },
           { location: 'LosAngeles, CA', dicipline: [], username: 'MrFrodoo', age: 43 },
-        ]
+        ],
+        whatever: 'something'
     }.to_json
   end
 end
