@@ -1,4 +1,4 @@
 == README
 
-Improving functionality of (/r/Longboarding buddy finder)[https://docs.google.com/spreadsheet/ccc?key=0AnV07HtTENH-dHY1MS1FWnZrZW03STMwemFfUl9uRXc&usp=sharing#gid=0]
+Improving functionality of {/r/Longboarding buddy finder}[https://docs.google.com/spreadsheet/ccc?key=0AnV07HtTENH-dHY1MS1FWnZrZW03STMwemFfUl9uRXc&usp=sharing#gid=0]
 
