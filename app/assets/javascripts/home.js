@@ -15,7 +15,6 @@ $(function () {
     function change_eye_color() {
         setTimeout(function () {
             var eye_color = (count % 2) ? '#f00' : '#0f0';
-            console.log('running', eye_color, count);
             eyes.css('background-color', eye_color);
             count++;
             change_eye_color();
