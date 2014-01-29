@@ -1,3 +1,5 @@
+require 'pp'
+
 class ApiController < ApplicationController
   def longboarder
     render text: {
@@ -13,5 +15,9 @@ class ApiController < ApplicationController
           { location: 'LosAngeles, CA', dicipline: [], username: 'MrFrodoo', age: 43 },
         ]
     }.to_json
+  end
+
+  def users
+    render text: User.all.to_json
   end
 end
