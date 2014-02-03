@@ -1,8 +1,10 @@
 == README
 
-Initially checkout repository
-After checking out, run [ bundle install ] in your terminal and restart your rails server
-After completed run [ rails g devise:install ] to initialize
+1. Initially checkout repository
+
+2. After checking out, run [ bundle install ] in your terminal and restart your rails server
+
+3. After completed run [ rails g devise:install ] to initialize
 and the [ rake db:migrate ] command to setup the database config
 
 Improving functionality of {/r/Longboarding buddy finder}[https://docs.google.com/spreadsheet/ccc?key=0AnV07HtTENH-dHY1MS1FWnZrZW03STMwemFfUl9uRXc&usp=sharing#gid=0]
