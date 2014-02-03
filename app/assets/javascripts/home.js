@@ -1,12 +1,16 @@
+var geocoder;
 function initialize() {
+    geocoder = new google.maps.Geocoder();
     var controlOptions = {
         style: google.maps.MapTypeControlStyle.DROPDOWN_MENU
     };
     var mapOptions = {
-        center: new google.maps.LatLng(-34.397, 150.644),
+        center: new google.maps.LatLng(40.000,  100.000),
         mapTypeControlOptions: controlOptions,
-        zoom: 8
+        zoom: 6
     };
+
+
     var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
 
     jQuery(document).ready(function () {
@@ -24,23 +28,11 @@ function initialize() {
 
         change_eye_color();
 
-        function add_marker_to_map(map, map_coordinates) {
-            // draw marker on map
-        }
-
-        function create_map_marker(map_coordinates) {
-            // return google marker object
-            return {}
-        }
-
-        function lookup_longboarder_location(location) {
-            // return google LatLng object
-            return {}
-        }
 
         function add_longboarder_to_map(longboarder) {
-            console.info('adding longboarder(/u/' + longboarder.username + ') from ' + longboarder.location + ' to map');
+           // console.info('adding longboarder(/u/' + longboarder.username + ') from ' + longboarder.location + ' to map');
             var map_coordinates = lookup_longboarder_location(longboarder.location);
+            //console.info(longboarder.location);
             var marker = create_map_marker(map_coordinates);
             add_marker_to_map(map, marker)
         }
@@ -49,15 +41,40 @@ function initialize() {
             var long_boarders = parsed_result.longboarders;
             var long_boarder_count = long_boarders.length;
 
+
             for (var i = 0; i < long_boarder_count; i += 1) {
                 add_longboarder_to_map(long_boarders[i]);
             }
         }
 
+        function add_marker_to_map(map, map_coordinates) {
+            // draw marker on map
+            console.info(long_boarders)
+
+        }
+
+        function create_map_marker(map_coordinates) {
+            // return google marker object
+
+            return {}
+        }
+
+        function lookup_longboarder_location(location) {
+            // return google LatLng object
+
+
+
+
+            return {}
+        }
+
         jQuery.get('/api/longboarder', parse_api_result, 'json');
+        //console.log(parse_api_result)
+
     });
 
 }
+
 
 
 google.maps.event.addDomListener(window, 'load', initialize);
