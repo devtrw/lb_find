@@ -1,5 +1,3 @@
-require 'pp'
-
 class ApiController < ApplicationController
   def longboarder
     render text: {
@@ -20,4 +18,5 @@ class ApiController < ApplicationController
   def users
     render text: User.all.to_json
   end
+
 end

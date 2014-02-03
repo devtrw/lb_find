@@ -1,17 +1,15 @@
-sam:
-  username: dasclockwork
-  age: 22
-  location: Lake Oswego, OR
-  discipline: downhill
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-steven:
-  username: lolwut
-  age: 22
-  location: Portland, OR
-  discipline: freestyle
+one:
+  id: 
+  name: MyString
+  location: MyString
+  dicipline: MyString
+  age: 1
 
-jules:
-  username: boogali
-  age: 34
-  location: Portland, OR
-  discipline: cruising
+two:
+  id: 
+  name: MyString
+  location: MyString
+  dicipline: MyString
+  age: 1
