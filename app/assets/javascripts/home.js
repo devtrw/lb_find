@@ -9,20 +9,7 @@ function initialize() {
     };
     var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
 
-    jQuery(document).ready(function () {
-        var count = 0;
-        var eyes = jQuery('#logo').find('.eyes');
 
-        function change_eye_color() {
-            setTimeout(function () {
-                var eye_color = (count % 2) ? '#f00' : '#0f0';
-                eyes.css('background-color', eye_color);
-                count++;
-                change_eye_color();
-            }, 1000);
-        }
-
-        change_eye_color();
 
         function draw_map_marker(map_coordinates) {
             // return google marker object
