@@ -4,7 +4,7 @@
   <title>LbFind</title>
   <%= stylesheet_link_tag    "application", media: "all" %>
   <script type="text/javascript"
-          src="https://maps.googleapis.com/maps/api/js?sensor=false">
+    src="https://maps.googleapis.com/maps/api/js?sensor=false">
   </script>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
@@ -18,9 +18,10 @@
     <p class="alert alert-error"><%= alert %></p>
 <% end %>
 
-<ul class="nav">
-  <li class="active"><a href="/ideas">Ideas</a></li>
-</ul>
+
+<%= render 'layouts/navbar' %>
+
+<%= yield %>
 
 <p class="navbar-text pull-right">
   <% if user_signed_in? %>
@@ -32,8 +33,6 @@
     <%= link_to 'Login', new_user_session_path, :class => 'navbar-link' %>
   <% end %>
 </p>
-
-<%= yield %>
 
 </body>
 </html>
