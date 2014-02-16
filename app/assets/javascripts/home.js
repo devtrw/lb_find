@@ -69,7 +69,7 @@ function initialize() {
         }
 
         jQuery.get('/api/longboarder', parse_api_result, 'json');
-    });
+
 
 }
 
