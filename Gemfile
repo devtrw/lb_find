@@ -23,6 +23,11 @@ gem 'devise'
 
 gem 'bootstrap-sass', '~> 3.1.0'
 
+gem 'better_errors'
+gem 'binding_of_caller'
+
+gem 'figaro'
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false

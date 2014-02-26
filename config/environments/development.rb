@@ -29,4 +29,21 @@ LbFind::Application.configure do
 
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
 
+  config.action_mailer.raise_delivery_errors = true
+
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+      :address              => 'smtp.mandrillapp.com',
+      :port                 => 587,
+      :domain               => 'mandrillapp.com' ,
+      :user_name            => ENV['MANDRILL_USER_NAME'] ,
+      :password             => ENV['MANDRILL_PASSWORD'] ,
+      :authentication       => 'plain',
+      :openssl_verify_mode  => 'none',
+      :enable_starttls_auto => true
+
+  }
+
+
 end
