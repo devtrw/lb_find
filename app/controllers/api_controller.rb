@@ -3,6 +3,9 @@ class ApiController < ApplicationController
     render text: {
         longboarders: [
           { location: 'Portland, OR', discipline: [:downhill], username: 'some_dude_5', age: 25 },
+          { location: 'Portland, OR', discipline: [:downhill], username: 'some_dude_4', age: 24 },
+          { location: 'Portland, OR', discipline: [:downhill], username: 'some_dude_3', age: 23 },
+          { location: 'Portland, OR', discipline: [:downhill], username: 'some_dude_2', age: 22 },
           { location: 'Pheonix, AZ', discipline: [:downhill, :freeride], username: 'patrike12', age: 23 },
           { location: 'Canada, Montreal', discipline: [], username: 'willbilly567', age: 12 },
           { location: 'San Jose, California', discipline: [:freeride], username: 'ihaveachicken', age: 16 },

@@ -1,75 +1,72 @@
-    function initialize() {
-        var controlOptions = {
-            style: google.maps.MapTypeControlStyle.DROPDOWN_MENU
-        };
+function initialize() {
+    var controlOptions = {
+        style: google.maps.MapTypeControlStyle.DROPDOWN_MENU
+    };
+    var mapOptions = {
+        center: new google.maps.LatLng(40.000, -100.644),
+        mapTypeControlOptions: controlOptions,
+        zoom: 4
+    };
+    var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
 
-        var mapOptions = {
-            center: new google.maps.LatLng(40.000, -100.644),
-            mapTypeControlOptions: controlOptions,
-            zoom: 4
-        };
-
-        var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
-
-        var infowindow = new google.maps.InfoWindow({
-
+    var infoWindow = new google.maps.InfoWindow({
     });
 
-        function draw_map_marker(map_coordinates) {
+        function drawMapMarker(mapCoordinates) {
             // return google marker object
-            var reddit_longboarder = 'assets/mapmarker.svg';
+            var redditLongboarder = 'assets/mapmarker.svg';
             var marker = new google.maps.Marker({
                 map: map,
                // animation: google.maps.Animation.DROP,
-                icon: reddit_longboarder,
-                position: map_coordinates
+                icon: redditLongboarder,
+                position: mapCoordinates
 
             })
 
             return marker;
         }
 
-        function process_longboarder_location(google_api_result) {
-            var map_coordinates = google_api_result[0].geometry.location;
-            return draw_map_marker(map_coordinates);
+        function processLongboarderLocation(google_api_result) {
+            var mapCoordinates = google_api_result[0].geometry.location;
+            return drawMapMarker(mapCoordinates);
         }
 
-        function lookup_longboarder_location(longboarder) {
+        function lookupLongboarderLocation(longboarder) {
             // return google LatLng object
            // console.log(location)
            geocoder = new google.maps.Geocoder();
            geocoder.geocode({address: longboarder.location},  function (result, status) {
-               var marker = process_longboarder_location(result);
+               var marker = processLongboarderLocation(result);
                var infoContent = '<h1>' + longboarder.username + '<br>' + 'age: ' + longboarder.age + '<br>' +'</h1>'
                infoContent += '<ul>'
                for (var i = 0; i < longboarder.discipline.length; i++ ){
                    infoContent += '<li>discipline' + ': ' + longboarder.discipline[i] + '</li>';
-                   infoContent += '</ul>'
+
+               infoContent += '</ul>'
 
                }
 
                google.maps.event.addListener(marker, 'click', function() {
 
-                infowindow.setContent(infoContent);
-                infowindow.open(map, marker);
-
+                   infoWindow.setContent(infoContent);
+                   infoWindow.open(map, marker);
                });
-            });
+           });
         }
 
-    function parse_api_result(parsed_result) {
-        var long_boarders = parsed_result.longboarders;
+        function parseApiResult(parsedResult) {
+            var longBoarders = parsedResult.longboarders;
 
-            for (var i = 0; i < long_boarders.length; i ++) {
-                lookup_longboarder_location(long_boarders[i]);
+            for (var i = 0; i < longBoarders.length; i ++) {
+                lookupLongboarderLocation(longBoarders[i]);
             }
         }
 
-        $.get('/api/longboarder', parse_api_result, 'json');
+        $.get('/api/longboarder', parseApiResult, 'json');
 
 
 
-    });
+
 
 }
 
