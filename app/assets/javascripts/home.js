@@ -64,7 +64,7 @@ function initialize() {
             var long_boarder_count = long_boarders.length;
 
             for (var i = 0; i < long_boarder_count; i += 1) {
-                lookup_longboarder_location(long_boarders[i]);
+                add_longboarder_to_map(long_boarders[i]);
             }
         }
 
