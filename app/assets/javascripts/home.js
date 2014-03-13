@@ -16,7 +16,7 @@ function initialize() {
             var reddit_longboarder = 'assets/mapmarker.svg';
             var marker = new google.maps.Marker({
                 map: map,
-                animation: google.maps.Animation.DROP,
+                //animation: google.maps.Animation.DROP,
                 icon: reddit_longboarder,
                 position: map_coordinates
 
@@ -53,12 +53,6 @@ function initialize() {
            });
         }
 
-        function add_longboarder_to_map(longboarder) {
-           // console.info('adding longboarder(/u/' + longboarder.username + ') from ' + longboarder.location + ' to map');
-            lookup_longboarder_location(longboarder);
-
-        }
-
         function parse_api_result(parsed_result) {
             var long_boarders = parsed_result.longboarders;
             var long_boarder_count = long_boarders.length;
@@ -68,9 +62,26 @@ function initialize() {
             }
         }
 
-        jQuery.get('/api/longboarder', parse_api_result, 'json');
+        $.get('/api/longboarder', parse_api_result, 'json');
 
 
+}
+
+
+
+function dogeDetection(){
+    document.getElementById("signIn").onclick = function(){
+        var dogeRegExp = new RegExp("doge");
+        if (document.getElementById("user_email").value.match(dogeRegExp)){
+            $("#dogePic").show("slow");
+            setTimeout(function(){$("#dogePic").hide("slow");} ,2000);
+        }
+    }
+}
+
+window.onload = function(){
+    $("#dogePic").hide(0);
+    dogeDetection();
 }
 
 
