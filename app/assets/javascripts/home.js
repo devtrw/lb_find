@@ -1,3 +1,7 @@
+var infowindow = new google.maps.InfoWindow({
+
+});
+
 function initialize() {
     var controlOptions = {
         style: google.maps.MapTypeControlStyle.DROPDOWN_MENU
@@ -42,12 +46,9 @@ function initialize() {
                    infoContent += '<li>discipline number ' + i + ': ' + longboarder.discipline[i] + '</li>';
                }
                infoContent += '</ul>'
-               var infowindow = new google.maps.InfoWindow({
-                   content: infoContent
-
-               });
 
                google.maps.event.addListener(marker, 'click', function() {
+                   infowindow.setContent(infoContent);
                    infowindow.open(map,marker);
                });
            });
