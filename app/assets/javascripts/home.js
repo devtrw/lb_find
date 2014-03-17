@@ -21,7 +21,7 @@ function initialize() {
             var reddit_longboarder = 'assets/mapmarker.svg';
             var marker = new google.maps.Marker({
                 map: map,
-                //animation: google.maps.Animation.DROP,
+                animation: google.maps.Animation.DROP,
                 icon: reddit_longboarder,
                 position: map_coordinates
 
@@ -51,7 +51,7 @@ function initialize() {
                var infoContent = '<h1>' + longboarder.username + '<br>' + longboarder.age + '<br>' +'</h1>'
                infoContent += '<ul>'
                for (var i = 0; i < longboarder.discipline.length; i++ ){
-                   infoContent += '<li>discipline number ' + i + ': ' + longboarder.discipline[i] + '</li>';
+                   infoContent += '<li>discipline' + ': ' + longboarder.discipline[i] + '</li>';
                }
                infoContent += '</ul>'
 
