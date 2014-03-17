@@ -17,6 +17,7 @@ function initialize() {
 
         function draw_map_marker(map_coordinates) {
             // return google marker object
+            //console.log(map_coordinates)
             var reddit_longboarder = 'assets/mapmarker.svg';
             var marker = new google.maps.Marker({
                 map: map,
@@ -31,12 +32,19 @@ function initialize() {
 
         function process_longboarder_location(google_api_result) {
             var map_coordinates = google_api_result[0].geometry.location;
+            var randAmount = (Math.random())/10;
+            map_coordinates.k += randAmount;
+            map_coordinates.A += randAmount;
+            //var latString = parseFloat(map_coordinates.k, 10.0000000) + randAmount;
+            //var longString = parseFloat(map_coordinates.A, 10.0000000) + randAmount;
+            //var mapCoordRand = {k: latString, A: longString}
+            console.log(map_coordinates)
             return draw_map_marker(map_coordinates);
         }
 
         function lookup_longboarder_location(longboarder) {
             // return google LatLng object
-           // console.log(location)
+           //console.log(longboarder)
            geocoder = new google.maps.Geocoder();
            geocoder.geocode({address: longboarder.location},  function (result, status) {
                var marker = process_longboarder_location(result)
