@@ -32,14 +32,11 @@ function initialize() {
 
         function process_longboarder_location(google_api_result) {
             var map_coordinates = google_api_result[0].geometry.location;
+            console.info(google_api_result[0].formatted_address)
             var randAmount = (Math.random())/10;
             map_coordinates.k += randAmount;
             map_coordinates.A += randAmount;
-            //var latString = parseFloat(map_coordinates.k, 10.0000000) + randAmount;
-            //var longString = parseFloat(map_coordinates.A, 10.0000000) + randAmount;
-            //var mapCoordRand = {k: latString, A: longString}
-            console.log(map_coordinates)
-            return draw_map_marker(map_coordinates);
+                    return draw_map_marker(map_coordinates);
         }
 
         function lookup_longboarder_location(longboarder) {
