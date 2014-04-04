@@ -9,8 +9,10 @@ function initialize() {
     var mapOptions = {
         center: new google.maps.LatLng(40.000, -100.644),
         mapTypeControlOptions: controlOptions,
-        zoom: 4
+        zoom: 4,
+        minZoom: 2
     };
+   console.log(mapOptions.zoom)
     var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
 
 
@@ -31,8 +33,8 @@ function initialize() {
         }
 
         function process_longboarder_location(google_api_result) {
+            //console.log(google_api_result[0].geometry.location)
             var map_coordinates = google_api_result[0].geometry.location;
-            console.info(google_api_result[0].formatted_address)
             var randAmount = (Math.random())/10;
             map_coordinates.k += randAmount;
             map_coordinates.A += randAmount;
@@ -73,9 +75,17 @@ function initialize() {
 
 }
 
-
+function elementExists(selector) {
+    return 0 === selector.length
+}
 
 function dogeDetection(){
+    var signInContainer = $("#signIn");
+
+    if (false === elementExists(signInContainer)) {
+        return;
+    }
+
     document.getElementById("signIn").onclick = function(){
         var dogeRegExp = new RegExp("doge");
         if (document.getElementById("user_email").value.match(dogeRegExp)){
